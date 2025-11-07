@@ -1,0 +1,217 @@
+  :root {
+      --bg: #0f1116;
+      --sidebar: #151922;
+      --card: #1a1e27;
+      --text: #f1f5f9;
+      --muted: #9ca3af;
+      --green: #22c55e;
+      --blue: #3b82f6;
+      --orange: #f97316;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+    }
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: var(--sidebar);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .sidebar nav a {
+      display: block;
+      color: var(--muted);
+      padding: 12px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+    .sidebar nav a.active, .sidebar nav a:hover {
+      background: var(--card);
+      color: var(--text);
+    }
+
+    /* Content */
+    .content { flex: 1; padding: 24px; }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .topbar input {
+      flex: 1;
+      margin-right: 12px;
+      padding: 10px;
+      border-radius: var(--radius);
+      border: none;
+      background: var(--card);
+      color: var(--text);
+    }
+    .topbar select {
+      padding: 15px 20px;
+      border-radius: var(--radius);
+      border: none;
+      background: var(--card);
+      color: var(--text);
+    }
+
+    .ads-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .ad-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .ad-card:hover { transform: translateY(-3px); }
+    .ad-card img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+    }
+    .ad-card h3 { margin-bottom: 4px; }
+    .ad-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 8px; }
+    .ad-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+    .badge {
+      border: none;
+      padding: 6px 10px;
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      color: white;
+    }
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .orange { background: var(--orange); }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: var(--card);
+      padding: 20px;
+      border-radius: var(--radius);
+      width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .modal-content img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+    }
+    .close-btn {
+      background: crimson;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      float: right;
+    }
+
+    /* Categories page */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .category-card {
+      background: var(--card);
+      padding: 20px;
+      text-align: center;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .category-card:hover { background: #222633; }
+
+    /* Add form */
+    form {
+      padding-left: 50px;
+      background: var(--card);
+      padding: 20px;
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      max-width: 1300px;
+      width: 60%;
+    }
+    form input, form select, form textarea {
+      padding: 10px;
+      border-radius: var(--radius);
+      border: none;
+      background: #2a2f3c;
+      color: var(--text);
+    }
+    form button {
+      background: var(--blue);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+
+    /* Profile */
+    .profile {
+      text-align: center;
+    }
+    .profile img {
+      display: inline-block;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .edit-profile {
+      display: block;
+    }
+    .profile button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: var(--radius);
+      background: var(--blue);
+      color: white;
+      cursor: pointer;
+    }
+    
+    .profile .menu {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .profile .menu button {
+      background: var(--card);
+      padding: 20px;
+    }

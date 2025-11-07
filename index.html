@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>Egalik </title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">EGALIK</div>
+    <nav>
+      <a data-page="home" class="active">Asosiy</a>
+      <a data-page="categories">Kategoriyalar</a>
+      <a data-page="add">E’lon qo‘shish</a>
+      <a data-page="profile">Profil</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <!-- Asosiy page -->
+    <section id="home" class="page">
+      <header class="topbar">
+        <input type="text" placeholder="Nimalar qidiryapsiz?">
+        <select class="select">
+          <option>Yangi</option>
+          <option>Mashhur</option>
+          <option>Ko‘p qidirilgan</option>
+        </select>
+      </header>
+      <div class="ads-grid">
+        <article class="ad-card" onclick="openModal('IPhone 13','Yangi holatda, original')">
+          <img src="images/SUx182.webp" alt="Rasm">
+          <h3>IPhone 16</h3>
+          <p>Yangi holatda, original</p>
+          <div class="ad-actions">
+            <button class="badge blue">Ijaraga beriladi</button>
+          </div>
+        </article>
+        <article class="ad-card" onclick="openModal('Lada Priora','2008 yil, yaxshi holatda')">
+          <img src="images/P1020338.jpg" alt="Rasm">
+          <h3>Iphone 6</h3>
+          <p>Yaxshi holatda</p>
+          <div class="ad-actions">
+            <button class="badge green">Sotiladi</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="page" style="display:none">
+      <div class="categories">
+        <div class="category-card">Texnika</div>
+        <div class="category-card">Asbob-uskuna</div>
+        <div class="category-card">Transport</div>
+        <div class="category-card">Tarixiy buyumlar</div>
+        <div class="category-card">Qo‘l san’ati</div>
+        <div class="category-card">Ko‘chmas mulk</div>
+        <div class="category-card">Qishloq xo‘jaligi</div>
+        <div class="category-card">Yer maydonlari</div>
+      </div>
+    </section>
+
+    <!-- Add -->
+    <section id="add" class="page" style="display:none">
+      <form>
+        <select>
+          <option>Sotiladi</option>
+          <option>Ijaraga</option>
+          <option>Ayirboshlanadi</option>
+        </select>
+        <input type="text" placeholder="E’lon nomi">
+        <select>
+          <option>Kategoriya</option>
+          <option>Texnika</option>
+          <option>Transport</option>
+        </select>
+        <textarea rows="3" placeholder="Tafsilot"></textarea>
+        <input type="number" placeholder="Narxi">
+        <input type="file" multiple>
+        <input type="text" placeholder="Joylashuv">
+        <input type="text" placeholder="Telefon raqam">
+        <input type="text" placeholder="Telegram username">
+        <button>E’lonni joylash</button>
+      </form>
+    </section>
+
+    <!-- Profile -->
+    <section id="profile" class="page" style="display:none">
+      <div class="profile">
+        <img src="images/my profile photo.jpg" alt="Profil">
+        <!-- <button class="edit-profile">Profilni tahrirlash</button> -->
+        <div class="menu">
+          <button>Mening e’lonlarim</button>
+          <button>Tilni o‘zgartirish</button>
+          <button>Rejim Tungi/Kunduzgi</button>
+          <button>Chiqish</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">✖</button>
+      <img src="/images/SUx182.webp" alt="Rasm">
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+      <p><b>Manzil:</b> Toshkent</p>
+      <p><b>Holati:</b> <span class="badge blue">Ijaraga beriladi</span></p>
+      <button class="badge blue">📞 Telefon: +998 90 123 45 67</button>
+      <button class="badge orange">💬 Telegram: @elonchi</button>
+    </div>
+  </div>
+
+  <script>
+    // Navbar switching
+    document.querySelectorAll(".sidebar nav a").forEach(link=>{
+      link.addEventListener("click", ()=>{
+        document.querySelectorAll(".sidebar nav a").forEach(a=>a.classList.remove("active"));
+        link.classList.add("active");
+        let page = link.dataset.page;
+        document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+        document.getElementById(page).style.display="block";
+      });
+    });
+
+    // Modal
+    function openModal(title, desc){
+      document.getElementById("modal-title").textContent = title;
+      document.getElementById("modal-desc").textContent = desc;
+      document.getElementById("modal").style.display="flex";
+    }
+    function closeModal(){
+      document.getElementById("modal").style.display="none";
+    }
+  </script>
+</body>
+</html>
